@@ -3,11 +3,13 @@ interno/
 
 # Binários pesados de modelos e LLMs (não devem ir para o repositório git)
 *.llamafile
+*.llamafile.exe
 *.gguf
 *.bin
 
 # Artefatos gerados pelo gerallamafile.py
 iniciar_modelo.sh
+iniciar_modelo.bat
 ui_config.json
 
 # Python

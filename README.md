@@ -43,25 +43,32 @@ Execute o script [gerallamafile.py](file:///home/marcelo/projetos/pln/llamafile/
 
 ```bash
 # Execução padrão utilizando CPU:
-python3 gerallamafile.py
-
-# Ou explicitando o uso de CPU:
-python3 gerallamafile.py --cpu
+python3 gerallamafile.py      # No Linux / macOS
+python gerallamafile.py       # No Windows 11
 
 # Ou habilitando aceleração por GPU (se disponível):
 python3 gerallamafile.py --gpu
 ```
 
+> **Nota sobre o Windows 11:** O script detecta o Windows automaticamente e, se o seu modelo ainda não tiver a extensão `.exe`, ele cria um hard-link ou renomeia para `modelo.llamafile.exe` de forma transparente, permitindo execução nativa imediata sem WSL.
+
 ### 3. Inicie o Seu Modelo
-O comando anterior gera o script executável [iniciar_modelo.sh](file:///home/marcelo/projetos/pln/llamafile/iniciar_modelo.sh). Para utilizá-lo:
 
+O comando anterior gera os inicializadores para o seu sistema:
+
+#### No Linux / macOS:
 ```bash
-# Iniciar no modo padrão (Chat interativo no terminal):
-./iniciar_modelo.sh
-
-# Ou iniciar no modo Web UI (abrindo servidor no navegador):
-./iniciar_modelo.sh --web
+./iniciar_modelo.sh         # Modo Chat interativo no terminal
+./iniciar_modelo.sh --web   # Modo Web UI no navegador (http://127.0.0.1:8080)
 ```
+
+#### No Windows 11 (Nativo, sem WSL):
+- **Opção 1:** Dê **dois cliques** no arquivo `iniciar_modelo.bat` no Windows Explorer.
+- **Opção 2:** Pelo Prompt de Comando (CMD) ou PowerShell:
+  ```cmd
+  iniciar_modelo.bat         REM Modo Chat interativo no terminal
+  iniciar_modelo.bat --web   REM Modo Web UI no navegador (abre automaticamente)
+  ```
 
 ---
 

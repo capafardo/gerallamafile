@@ -74,5 +74,23 @@ Você pode utilizar este projeto com qualquer modelo Llamafile oficial ou da com
 
 2. **Como usar um novo modelo com o nosso projeto:**
    - Basta baixar o novo arquivo `.llamafile` e colocá-lo na mesma pasta do projeto;
-   - Dar permissão de execução: `chmod +x novo-modelo.llamafile`;
-   - Executar `python3 gerallamafile.py` para gerar o inicializador correspondente.
+   - No Linux/macOS, dê permissão de execução: `chmod +x novo-modelo.llamafile`;
+   - No Windows, se o arquivo não terminar em `.exe`, renomeie para `novo-modelo.llamafile.exe` (ou o próprio script `gerallamafile.py` fará isso automaticamente);
+   - Execute `python3 gerallamafile.py` (Linux) ou `python gerallamafile.py` (Windows) para gerar os inicializadores.
+
+---
+
+## 4. Execução Nativa no Windows 11 (Sem WSL)
+
+O projeto é 100% compatível com o Windows 11 sem necessidade de WSL, Docker ou máquinas virtuais:
+
+1. **Extensão Executável:** O Windows exige que arquivos executáveis terminem com `.exe`. O `gerallamafile.py` detecta isso e ajusta o nome do arquivo criando um *hard-link* (não consome espaço extra no disco).
+2. **Inicializador Batch (`iniciar_modelo.bat`):**
+   - Suporta **duplo-clique** direto no Windows Explorer;
+   - Suporta argumentos via Prompt de Comando:
+     ```cmd
+     iniciar_modelo.bat         REM Inicia o chat no terminal
+     iniciar_modelo.bat --web   REM Inicia o servidor e abre a Web UI no navegador
+     ```
+3. **Tratamento de UTF-8 no Windows:** O `iniciar_modelo.bat` utiliza a página de código UTF-8 (`chcp 65001`) e o PowerShell nativo do Windows 11 para garantir que caracteres com acentuação sejam preservados corretamente.
+
