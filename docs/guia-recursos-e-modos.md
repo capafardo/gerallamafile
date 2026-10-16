@@ -63,20 +63,40 @@ O Llamafile possui suporte integrado a múltiplos backends gráficos compilados 
 
 ## 3. Onde Encontrar e Baixar Mais Modelos Llamafile
 
-Você pode utilizar este projeto com qualquer modelo Llamafile oficial ou da comunidade. Alguns dos principais locais para download são:
+Os arquivos de modelo `.llamafile` pesam vários gigabytes (por exemplo, o `Qwen3.5-2B-Q8_0.llamafile` possui ~2.8 GB). Por essa razão, **todos os arquivos com extensão `.llamafile` ou `.llamafile.exe` são ignorados pelo Git** através do [`.gitignore`](../.gitignore), evitando inflar o repositório.
 
-1. **Repositório Oficial do Mozilla AI no Hugging Face:**
-   - [Hugging Face: Mozilla-Ocho / llamafile-models](https://huggingface.co/models?search=llamafile)
-   - Exemplos de modelos populares:
-     - `Qwen2.5` e `Qwen3.5` (excelentes em raciocínio, programação e múltiplos idiomas);
-     - `Llama-3.1` e `Llama-3.2` (versáteis, rápidos e com grande base de conhecimento);
-     - `Mistral-7B` (ótimo desempenho para processamento de texto e sumarização).
+Você pode utilizar este projeto com qualquer modelo Llamafile oficial ou da comunidade. Os principais locais para download são:
 
-2. **Como usar um novo modelo com o nosso projeto:**
-   - Basta baixar o novo arquivo `.llamafile` e colocá-lo na mesma pasta do projeto;
-   - No Linux/macOS, dê permissão de execução: `chmod +x novo-modelo.llamafile`;
-   - No Windows, se o arquivo não terminar em `.exe`, renomeie para `novo-modelo.llamafile.exe` (ou o próprio script `gerallamafile.py` fará isso automaticamente);
-   - Execute `python3 gerallamafile.py` (Linux) ou `python gerallamafile.py` (Windows) para gerar os inicializadores.
+### Principais Repositórios Oficiais
+1. **Mozilla Ocho no Hugging Face (Recomendado):**
+   - [https://huggingface.co/Mozilla-Ocho](https://huggingface.co/Mozilla-Ocho)
+   - Contém os lançamentos mais recentes empacotados pela Mozilla AI.
+2. **Busca Global de Modelos Llamafile no Hugging Face:**
+   - [https://huggingface.co/models?search=llamafile](https://huggingface.co/models?search=llamafile)
+3. **Releases Oficiais no GitHub:**
+   - [https://github.com/mozilla-ai/llamafile/releases](https://github.com/mozilla-ai/llamafile/releases)
+
+### Modelos Populares Testados
+- **Família Qwen (2.5 e 3.5 - 2B / 3B / 7B):** Excelente raciocínio lógico, suporte nativo a português, programação e respostas concisas.
+- **Família Llama (3.1 e 3.2 - 1B / 3B / 8B):** Ótimo para uso geral e máquinas com menor capacidade de memória RAM.
+- **Família Mistral (7B):** Modelo maduro, ótimo para tarefas de PLN, classificação e sumarização.
+
+### Como Baixar e Usar um Novo Modelo no Projeto:
+1. Baixe o arquivo `.llamafile` diretamente na pasta do projeto:
+   ```bash
+   # Exemplo no Linux/macOS:
+   wget https://huggingface.co/Mozilla-Ocho/Qwen2.5-3B-Instruct-llamafile/resolve/main/Qwen2.5-3B-Instruct.Q8_0.llamafile
+   chmod +x Qwen2.5-3B-Instruct.Q8_0.llamafile
+
+   # Exemplo no Windows 11 (CMD/PowerShell):
+   curl.exe -L -o Qwen2.5-3B-Instruct.Q8_0.llamafile.exe https://huggingface.co/Mozilla-Ocho/Qwen2.5-3B-Instruct-llamafile/resolve/main/Qwen2.5-3B-Instruct.Q8_0.llamafile
+   ```
+2. Execute o `gerallamafile.py` para gerar os inicializadores:
+   ```bash
+   python3 gerallamafile.py   # Linux/macOS
+   python gerallamafile.py    # Windows 11
+   ```
+   *(Caso haja mais de um modelo na pasta, o script exibirá um menu interativo para você escolher qual deseja configurar).*
 
 ---
 

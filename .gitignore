@@ -2,6 +2,8 @@
 interno/
 
 # Binários pesados de modelos e LLMs (não devem ir para o repositório git)
+Qwen3.5-2B-Q8_0.llamafile
+Qwen3.5-2B-Q8_0.llamafile.exe
 *.llamafile
 *.llamafile.exe
 *.gguf

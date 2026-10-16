@@ -20,11 +20,49 @@ Com ele, basta escrever em um arquivo de texto simples ([descricao.txt](file:///
 
 ## 📋 Pré-requisitos
 
-1. **Linux**, **macOS** ou **Windows** (via WSL2);
+1. **Linux**, **macOS** ou **Windows 11** (nativamente sem WSL, ou via WSL2);
 2. **Python 3.8+**;
-3. Um modelo em formato `.llamafile` baixado na pasta do projeto (ex: `Qwen3.5-2B-Q8_0.llamafile`).
+3. Um modelo em formato `.llamafile` colocado na pasta do projeto (ex: `Qwen3.5-2B-Q8_0.llamafile`).
 
-> Caso ainda não possua um modelo baixado, consulte o [Guia de Recursos e Modelos](docs/guia-recursos-e-modos.md#3-onde-encontrar-e-baixar-mais-modelos-llamafile).
+---
+
+## 📥 Onde e Como Baixar Modelos Llamafile
+
+Os arquivos `.llamafile` são executáveis completos que contêm tanto os pesos da rede neural quanto o código de inferência. Por pesarem entre **1.5 GB e 8 GB**, **eles são estritamente ignorados pelo Git** (via [`.gitignore`](.gitignore)) e não devem ser enviados ao repositório.
+
+Você pode baixar modelos prontos gratuitamente nas seguintes fontes oficiais:
+
+### 1. Repositórios Oficiais
+- **Mozilla Ocho no Hugging Face (Recomendado):**  
+  [https://huggingface.co/Mozilla-Ocho](https://huggingface.co/Mozilla-Ocho)  
+  Repositório oficial mantido pela Mozilla AI com os modelos mais populares já empacotados.
+- **Busca Geral de Llamafiles no Hugging Face:**  
+  [https://huggingface.co/models?search=llamafile](https://huggingface.co/models?search=llamafile)
+- **Releases Oficiais no GitHub:**  
+  [https://github.com/mozilla-ai/llamafile/releases](https://github.com/mozilla-ai/llamafile/releases)
+
+### 2. Modelos Populares Sugeridos
+
+| Modelo | Tamanho | Perfil / Uso Recomendado | Link direto |
+| :--- | :--- | :--- | :--- |
+| **Qwen 2.5 / 3.5 (2B/3B)** | ~2.2 GB - 2.8 GB | Leve, excelente em português, código e raciocínio. Ideal para CPU. | [Hugging Face Qwen](https://huggingface.co/models?search=qwen+llamafile) |
+| **Llama 3.2 (1B / 3B)** | ~1.3 GB - 2.4 GB | Muito rápido, consome pouca memória RAM. | [Hugging Face Llama-3.2](https://huggingface.co/models?search=llama-3.2+llamafile) |
+| **Mistral 7B Instruct** | ~4.5 GB | Excelente capacidade de escrita, redação e análise textual. | [Hugging Face Mistral](https://huggingface.co/models?search=mistral+llamafile) |
+
+### 3. Exemplo de Download via Terminal
+
+Você pode baixar um modelo diretamente para a pasta do projeto via linha de comando:
+
+**No Linux ou macOS:**
+```bash
+wget https://huggingface.co/Mozilla-Ocho/Qwen2.5-3B-Instruct-llamafile/resolve/main/Qwen2.5-3B-Instruct.Q8_0.llamafile
+chmod +x Qwen2.5-3B-Instruct.Q8_0.llamafile
+```
+
+**No Windows 11 (Prompt de Comando ou PowerShell):**
+```cmd
+curl.exe -L -o Qwen2.5-3B-Instruct.Q8_0.llamafile.exe https://huggingface.co/Mozilla-Ocho/Qwen2.5-3B-Instruct-llamafile/resolve/main/Qwen2.5-3B-Instruct.Q8_0.llamafile
+```
 
 ---
 
