@@ -1,0 +1,33 @@
+# Pasta de controle interno solicitada para ser ignorada
+interno/
+
+# Binários pesados de modelos e LLMs (não devem ir para o repositório git)
+*.llamafile
+*.gguf
+*.bin
+
+# Artefatos gerados pelo gerallamafile.py
+iniciar_modelo.sh
+ui_config.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+# Ambientes de desenvolvimento e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs e arquivos temporários
+*.log
+/tmp/
